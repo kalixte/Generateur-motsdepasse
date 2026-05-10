@@ -1,0 +1,13 @@
+# Dockerfile
+FROM openjdk:21-slim
+
+WORKDIR /app
+
+# Copier les fichiers sources
+COPY src/main/java/*.java /app/
+
+# Compiler l'application
+RUN javac *.java
+
+# Exécuter l'application
+ENTRYPOINT ["java", "Main"]
